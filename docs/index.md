@@ -1,6 +1,6 @@
 --- 
-title: "A Minimal Book Example"
-author: "John Doe"
+title: "Data analysis for Newquay University Centre"
+author: "Michael Hunt"
 date: "2024-05-28"
 site: bookdown::bookdown_site
 documentclass: book
@@ -8,8 +8,8 @@ bibliography: [book.bib, packages.bib]
 # url: your book url like https://bookdown.org/yihui/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::gitbook,
+  This is the main text for those at Newquay University Centre who wih to analyse
+  their data. The HTML output format for this example is bookdown::gitbook,
   set in the _output.yml file.
 link-citations: yes
 github-repo: rstudio/bookdown-demo
