@@ -7,7 +7,7 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE)
 ```
 
 
-### Load packages
+## Load packages
 ```{r}
 library(tidyverse) # for data manipulation and plots, and more besides
 library(ggfortify) # this is useful for diagnostics
@@ -22,7 +22,7 @@ The `palmerpenguins` package comes with two in-built data sets on penguins. The 
 glimpse(penguins)
 ```
 
-### Remove observations with missing values
+## Remove observations with missing values
 
 We can see from the first few values of the glimpse table that some rows have missing values (NAs). We need to decide what to do with them. Here we will simply remove them! Here is a way to remove any row that contains missing values in one column or another:
 
@@ -33,7 +33,7 @@ glimpse(penguins_clean)
 ```
 That has removed 11 rows of data, so we haven't lost too much information.
 
-### Summary - group by species and sex
+## Summary - group by species and sex
 
 Here we use the famliar `group_by()` and `summarise()` construction to find the mean body mass for each combination of species and sex. We also calculate the standard error of those means and the number of individuals in each group.
 
@@ -47,7 +47,7 @@ penguins_clean |>
 Looking at this table, does it look as though females and males have different weights? If so, which is heavier? Is this true for all species? Do the different species weigh the same?
 
 
-### Plot the data
+## Plot the data
 
 To get further insight into these questions, we can plot the data. Here we will do a box plot
 
@@ -68,13 +68,13 @@ What do you think now about size differences between species and the two sexes?
 
 There is a lot going on here, so let's approach this more simply to begin with and concentrate solely on the difference between the females of the species.
 
-### One-way ANOVA
+## One-way ANOVA
 
 Let's ask the question: do the body weights differ between females of the different species?
 
 There is just one **factor** here, species, and it has more than two **levels** - the three different species - and the reponse variable is numeric, so it is highly likely that the appropriate test to answer this question is a one-way ANOVA. 'One way' because there is one factor, and 'ANOVA' (instead of t-test) because there are more than two levels.
 
-#### Null hypothesis
+### Null hypothesis
 Pretty much all of the commonly used statistics tests are asking the question: what is the probability that you would have got this data, or more extreme data, if the null hypothesis were true? Their job is to calculate that probability, which is called a p-value. There is a lot more besides, but what this means is that in carrying out any of these tests we at least need to have a hypothesis in mind and its corresponding null hypothesis. The null, remember, is typically the 'nothing going on', there is no effect, no difference scenario.
 
 So in this case, a suitable null hypothesis would be that there is no difference in body mass between the females of the different penguin species. 
@@ -128,7 +128,7 @@ females  |>
 From the summary table and the plot, what do you think? Do the masses differ between the species? 
 
 
-#### The actual ANOVA
+### The actual ANOVA
 
 You probably have a good idea what the answer is, as to our question, but now we will move on to the actual statistics test, in this case a one-way ANOVA.
 
@@ -136,7 +136,7 @@ An ANOVA is one variant of a range of anlysis techniques known as 'linear models
 
 First, we use the `lm()` function to construct a linear model of the data:
 
-#### Construct the model
+### Construct the model
 ```{r}
 females.model <- lm(body_mass_g ~ species, data = females)
 ```
@@ -144,7 +144,7 @@ females.model <- lm(body_mass_g ~ species, data = females)
 Here the `lm()` function has done all the maths of the ANOVA, and we have saved the results of that in an object called `females.model`. Note the use of the formula `body_mass_g ~ species` as the first argument of the `lm()` function, where this means 'body mass as a function of species'.
 
 
-#### Is the model valid?
+### Is the model valid?
 All linear models are only valid if the data meet a number of criteria. Chief among these for an ANOVA is that the spread of the data should be roughly the same in each subset, and that the data within each subset should be normally distributed around their respective mean values. Only if there conditions are met can be just go on and trust the output of the model. If they are not, we need to transform the data in some way until they are, or use a different test.
 
 There are various ways we can find out whether these consitions are met. A useful one is to do it graphically, and a useful way to do that is to use the `autoplot()` function from the `ggfortify` package. Let's do it:
@@ -163,7 +163,7 @@ On both counts, we are good to go: we can reasonably trust the output of the ANO
 
 So what is this output? We find this in three steps
 
-#### The overall picture
+### The overall picture
 
 First, we use the `anova()` function
 
@@ -182,7 +182,7 @@ The F value here is huge and the p-value is tiny, so tiny that it is esentially 
 
 But there is a differnce in this case, so we continue
 
-#### The detailed picture
+### The detailed picture
 
 We use the `summary()` function for this:
 
@@ -205,7 +205,7 @@ Note that we have only been told, so far, about the magnitude and significance o
 
 To find the answer to that, we o post-hoc tests:
 
-#### Post hoc tsts.
+### Post hoc tsts.
 
 A final step of most ANOVA analyses is to perform so-called post-hoc ('after the fact') tests which make pairwise comparisons between all possible pairs of levels, tell us what the differences are between those pairs and whether the differences are significant. Whatever method is used for this, it needs to take account of the danger of making Type-one errors that arises when multiple pair-wise tests are done.
 
@@ -221,7 +221,7 @@ Compare these differences with your initial summary table and your box plot. Do 
 The right-hand column  'p adj' tells us whtehr these difference are significant. If the p values are less than 0.05 then they are, at the 5% significance level. In this case they all are. The p values are so tiny for the differences between Gentoo and the other two species that that they are reported as zero.
 
 
-### Reporting the Result.
+## Reporting the Result.
 
 We try to use plain English to report our results, while still telling the reader what test was used and the key outputs of the test. Try to report the name of the test, the test statistic, the degrees of freedom, and the p-value. if. the p-value is really small then it is common to report it as p<0.01, or p<0.001. No one cares if it is a billionth or a squillionth. t just matters that is t is *really* small, if that is the case. If it is onlt just below 0.05, then I would report it isn full, so we might write p = 0.018. If p > 0.05 then conventiallly it is not reported, except to say p > 0.05.
 
