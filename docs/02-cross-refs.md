@@ -25,14 +25,10 @@ par(mar = c(4, 4, .1, .1))
 plot(pressure, type = 'b', pch = 19)
 ```
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{02-cross-refs_files/figure-latex/nice-fig-1} 
-
-}
-
-\caption{Here is a nice figure!}(\#fig:nice-fig)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="02-cross-refs_files/figure-html/nice-fig-1.png" alt="Plot with connected points showing that vapor pressure of mercury increases exponentially as temperature increases." width="80%" />
+<p class="caption">(\#fig:nice-fig)Here is a nice figure!</p>
+</div>
 
 Don't miss Table \@ref(tab:nice-tab).
 
@@ -44,25 +40,19 @@ knitr::kable(
 )
 ```
 
-\begin{table}
 
-\caption{(\#tab:nice-tab)Here is a nice table!}
-\centering
-\begin{tabular}[t]{rr}
-\toprule
-temperature & pressure\\
-\midrule
-0 & 0.0002\\
-20 & 0.0012\\
-40 & 0.0060\\
-60 & 0.0300\\
-80 & 0.0900\\
-\addlinespace
-100 & 0.2700\\
-120 & 0.7500\\
-140 & 1.8500\\
-160 & 4.2000\\
-180 & 8.8000\\
-\bottomrule
-\end{tabular}
-\end{table}
+
+Table: (\#tab:nice-tab)Here is a nice table!
+
+| temperature| pressure|
+|-----------:|--------:|
+|           0|   0.0002|
+|          20|   0.0012|
+|          40|   0.0060|
+|          60|   0.0300|
+|          80|   0.0900|
+|         100|   0.2700|
+|         120|   0.7500|
+|         140|   1.8500|
+|         160|   4.2000|
+|         180|   8.8000|
