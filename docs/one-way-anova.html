@@ -304,7 +304,7 @@ div.csl-indent {
 <span id="cb13-7"><a href="one-way-anova.html#cb13-7" tabindex="-1"></a>  <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="sc">+</span></span>
 <span id="cb13-8"><a href="one-way-anova.html#cb13-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb13-9"><a href="one-way-anova.html#cb13-9" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span> <span class="fu">c</span>(<span class="fl">0.1</span>,<span class="fl">0.8</span>))</span></code></pre></div>
-<p><img src="08-ANOVA_one_way_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="07-ANOVA_one_way_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>What do you think now about size differences between species and the two sexes?</p>
 <p>There is a lot going on here, so let’s approach this more simply to begin with and concentrate solely on the difference between the females of the species.</p>
 </div>
@@ -352,7 +352,7 @@ div.csl-indent {
 <span id="cb17-4"><a href="one-way-anova.html#cb17-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>,</span>
 <span id="cb17-5"><a href="one-way-anova.html#cb17-5" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb17-6"><a href="one-way-anova.html#cb17-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="08-ANOVA_one_way_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="07-ANOVA_one_way_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>From the summary table and the plot, what do you think? Do the masses differ between the species?</p>
 </div>
 <div id="the-actual-anova" class="section level4 hasAnchor" number="8.0.5.2">
@@ -371,7 +371,7 @@ div.csl-indent {
 <p>All linear models are only valid if the data meet a number of criteria. Chief among these for an ANOVA is that the spread of the data should be roughly the same in each subset, and that the data within each subset should be normally distributed around their respective mean values. Only if there conditions are met can be just go on and trust the output of the model. If they are not, we need to transform the data in some way until they are, or use a different test.</p>
 <p>There are various ways we can find out whether these consitions are met. A useful one is to do it graphically, and a useful way to do that is to use the <code>autoplot()</code> function from the <code>ggfortify</code> package. Let’s do it:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="one-way-anova.html#cb19-1" tabindex="-1"></a><span class="fu">autoplot</span>(females.model) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="08-ANOVA_one_way_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="07-ANOVA_one_way_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>All four graphs presented here tell us something about the validity or not of our model. Here we will just focus on the upper two:</p>
 <ul>
 <li><p>top-left: this shows the spread of the residual masses (diference between an individual’s mass and the mean mass for its species) for each species. We see that the spread of these values is aout the same for all three species. Check!</p></li>
@@ -498,7 +498,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/08-ANOVA_one_way.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/07-ANOVA_one_way.Rmd",
 "text": "Edit"
 },
 "history": {
