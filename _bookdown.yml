@@ -5,3 +5,9 @@ language:
   ui:
     chapter_name: 'Chapter '
 new_session: true
+
+rmd_files: [
+  "index.Rmd",
+  "ANOVA_one_way.Rmd",
+  "paired_data.Rmd"
+  ]
