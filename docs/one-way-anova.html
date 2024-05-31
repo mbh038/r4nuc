@@ -29,15 +29,15 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Michael Hunt" />
 
 
-<meta name="date" content="2024-05-28" />
+<meta name="date" content="2024-05-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="sharing-your-book.html"/>
-<link rel="next" href="references.html"/>
+<link rel="prev" href="references.html"/>
+<link rel="next" href="paired-data.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -205,6 +205,7 @@ div.csl-indent {
 <li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
 <li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="chapter" data-level="8" data-path="one-way-anova.html"><a href="one-way-anova.html"><i class="fa fa-check"></i><b>8</b> One-way ANOVA</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="one-way-anova.html"><a href="one-way-anova.html#load-packages"><i class="fa fa-check"></i><b>8.1</b> Load packages</a></li>
@@ -223,7 +224,12 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="one-way-anova.html"><a href="one-way-anova.html#reporting-the-result."><i class="fa fa-check"></i><b>8.6</b> Reporting the Result.</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="9" data-path="paired-data.html"><a href="paired-data.html"><i class="fa fa-check"></i><b>9</b> Paired data</a>
+<ul>
+<li class="chapter" data-level="9.0.1" data-path="paired-data.html"><a href="paired-data.html#which-test-paired-t-test-or-wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>9.0.1</b> Which test: paired t-test or Wilcoxon signed rank test?</a></li>
+<li class="chapter" data-level="9.0.2" data-path="paired-data.html"><a href="paired-data.html#example"><i class="fa fa-check"></i><b>9.0.2</b> Example</a></li>
+<li class="chapter" data-level="9.0.3" data-path="paired-data.html"><a href="paired-data.html#the-non-parametric-alternative-the-wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>9.0.3</b> The non-parametric alternative: The Wilcoxon signed rank test</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -313,7 +319,7 @@ div.csl-indent {
 <span id="cb13-7"><a href="one-way-anova.html#cb13-7" tabindex="-1"></a>  <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="sc">+</span></span>
 <span id="cb13-8"><a href="one-way-anova.html#cb13-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb13-9"><a href="one-way-anova.html#cb13-9" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span> <span class="fu">c</span>(<span class="fl">0.1</span>,<span class="fl">0.8</span>))</span></code></pre></div>
-<p><img src="07-ANOVA_one_way_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="ANOVA_one_way_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>What do you think now about size differences between species and the two sexes?</p>
 <p>There is a lot going on here, so let’s approach this more simply to begin with and concentrate solely on the difference between the females of the species.</p>
 </div>
@@ -361,7 +367,7 @@ div.csl-indent {
 <span id="cb17-4"><a href="one-way-anova.html#cb17-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Species&quot;</span>,</span>
 <span id="cb17-5"><a href="one-way-anova.html#cb17-5" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Body mass (g)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb17-6"><a href="one-way-anova.html#cb17-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="07-ANOVA_one_way_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="ANOVA_one_way_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>From the summary table and the plot, what do you think? Do the masses differ between the species?</p>
 </div>
 <div id="the-actual-anova" class="section level3 hasAnchor" number="8.5.2">
@@ -380,7 +386,7 @@ div.csl-indent {
 <p>All linear models are only valid if the data meet a number of criteria. Chief among these for an ANOVA is that the spread of the data should be roughly the same in each subset, and that the data within each subset should be normally distributed around their respective mean values. Only if there conditions are met can be just go on and trust the output of the model. If they are not, we need to transform the data in some way until they are, or use a different test.</p>
 <p>There are various ways we can find out whether these consitions are met. A useful one is to do it graphically, and a useful way to do that is to use the <code>autoplot()</code> function from the <code>ggfortify</code> package. Let’s do it:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="one-way-anova.html#cb19-1" tabindex="-1"></a><span class="fu">autoplot</span>(females.model) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="07-ANOVA_one_way_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="ANOVA_one_way_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>All four graphs presented here tell us something about the validity or not of our model. Here we will just focus on the upper two:</p>
 <ul>
 <li><p>top-left: this shows the spread of the residual masses (diference between an individual’s mass and the mean mass for its species) for each species. We see that the spread of these values is aout the same for all three species. Check!</p></li>
@@ -475,8 +481,8 @@ div.csl-indent {
           </div>
         </div>
       </div>
-<a href="sharing-your-book.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="paired-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -507,7 +513,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/07-ANOVA_one_way.Rmd",
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/ANOVA_one_way.Rmd",
 "text": "Edit"
 },
 "history": {

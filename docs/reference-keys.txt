@@ -37,3 +37,17 @@ the-overall-picture
 the-detailed-picture
 post-hoc-tsts.
 reporting-the-result.
+paired-data
+which-test-paired-t-test-or-wilcoxon-signed-rank-test
+the-paired-t-test
+the-wilcoxon-signed-rank-test
+null-hypotheses
+test-output
+example
+load-packages-1
+load-data
+plot-the-data-1
+tidy-the-data
+check-for-normality-of-differences
+the-non-parametric-alternative-the-wilcoxon-signed-rank-test
+relation-to-one-sample-paired-test
